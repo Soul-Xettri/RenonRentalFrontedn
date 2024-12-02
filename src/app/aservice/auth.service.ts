@@ -262,4 +262,30 @@ export class AuthService {
         })
       );
   }
+
+  fetchUnReadNotificationsCount(userId): Observable<any> {
+    const token = this.getToken();
+
+    if (!token) {
+      console.error('No authentication token found.');
+      return throwError(() => new Error('User is not authenticated.'));
+    }
+
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    };
+    return this.http
+      .get(`${this.apiUrl}/Notifications/notifications/unread-count`, {
+        params: { userId },
+        headers,
+      })
+      .pipe(
+        catchError((error) => {
+          console.error('Error fetching notification count:', error);
+          return throwError(
+            () => new Error('Unread Notification count not found.')
+          );
+        })
+      );
+  }
 }

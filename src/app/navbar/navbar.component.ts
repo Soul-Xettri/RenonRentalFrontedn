@@ -14,6 +14,9 @@ import { Subscription, throwError } from 'rxjs';
 import { LoginstateService } from '../aservice/loginstate.service';
 import { VehicleService } from '../aservice/vehicle.service';
 
+interface UnReadNotifications {
+  unreadCount: number;
+}
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -28,6 +31,8 @@ import { VehicleService } from '../aservice/vehicle.service';
   styleUrl: './navbar.component.css',
 })
 export class NavbarComponent {
+  unReadNotifications: UnReadNotifications = { unreadCount: 0 };
+  unreadNotifications: number = 0;
   showProfileModal = false; // Initially hidden
   showEditProfileModal = false; // For edit profile modal
   menuOpen: boolean = false;
@@ -43,7 +48,7 @@ export class NavbarComponent {
     private authservice: AuthService,
     private vehicleservice: VehicleService
   ) {}
-
+  isBusinessUser: boolean = false;
   ngOnInit(): void {
     this.loginStateService.isLoggedIn.subscribe((status) => {
       const token = this.authservice.getToken();
@@ -52,13 +57,28 @@ export class NavbarComponent {
       } else {
         const decodedToken: any = this.authservice.decodeToken();
         this.isLoggedIn = true;
+        this.isBusinessUser = decodedToken.role === 'Business';
         this.fetchUserProfile(decodedToken.id); // Fetch profile if logged in
+        const userId = this.authservice.getUserId();
+        // Fetch unread count
+        this.authservice.fetchUnReadNotificationsCount(userId).subscribe({
+          next: (response: UnReadNotifications) => {
+            this.unreadNotifications = response.unreadCount;
+            console.log('Unread notifications:', this.unreadNotifications);
+          },
+          error: (error) => {
+            console.error('Error fetching unread count:', error);
+          },
+        });
       }
     });
   }
   onLogout(): void {
     this.authservice.logout();
     this.loginStateService.logout();
+    this.router.navigate(['/login']).then(() => {
+      window.location.reload();
+    });
   }
 
   // userProfile = {
@@ -141,7 +161,7 @@ export class NavbarComponent {
       },
       error: (error) => {
         console.error('Error updating profile:', error);
-        this.closeProfileModal()
+        this.closeProfileModal();
         alert('Profile updated successfully!');
       },
     });

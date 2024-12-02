@@ -1,4 +1,3 @@
-// import { Component } from '@angular/core';
 import { Routes } from '@angular/router';
 import { AddvehicleComponent } from './addvehicle/addvehicle.component';
 import { BusinessTypeComponent } from './business-type/business-type.component';
@@ -27,147 +26,135 @@ import { BusinesshistoryComponent } from './businesshistory/businesshistory.comp
 import { UserbookinghistoryComponent } from './userbookinghistory/userbookinghistory.component';
 import { UsernotificationComponent } from './usernotification/usernotification.component';
 import { GetbusinessdetailComponent } from './getbusinessdetail/getbusinessdetail.component';
-// import { NotificationComponent } from './notification/notification.component';
+import { BusinessRoleGuard } from '../guard/BusinessRoleGuard';
+import { UserRoleGuard } from '../guard/UserRoleGuard';
 
 export const routes: Routes = [
-    {
-        path: 'home',
-        component:HomeComponent
-    },
-    {
-        path:"",redirectTo:"home",pathMatch:"full"
-    },
-    {
-        path: 'navbar',
-        component:NavbarComponent
-    },
-    {
-        path:'mode',
-        children:[
-            {path:"", component: ModeComponent},
-            {path:"signup", component: UsersignupComponent} 
-        ]
-        
-    },
-    {
-        path: 'signup',
-        component:UsersignupComponent
-    },
-    {
-        path: 'login',
-        component:LoginComponent
-    },
-    
-    {
-        path: 'business-type',
-        component:BusinessTypeComponent
-    },
+  {
+    path: 'home',
+    component: HomeComponent,
+    canActivate: [UserRoleGuard],
+  },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
+  {
+    path: 'navbar',
+    component: NavbarComponent,
+  },
+  {
+    path: 'mode',
+    children: [
+      { path: '', component: ModeComponent },
+      { path: 'signup', component: UsersignupComponent },
+    ],
+  },
+  {
+    path: 'signup',
+    component: UsersignupComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'business-type',
+    component: BusinessTypeComponent,
+  },
+  {
+    path: 'company',
+    component: CompanyComponent,
+  },
+  {
+    path: 'map',
+    component: MapComponent,
+  },
+  {
+    path: 'basicinfo',
+    component: BasicinfoComponent,
+  },
+  {
+    path: 'addvehicle',
+    component: AddvehicleComponent,
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [BusinessRoleGuard],
+  },
+  {
+    path: 'business',
+    component: BusinessComponent,
+  },
+  {
+    path: 'search',
+    component: SearchComponent,
+    canActivate: [UserRoleGuard],
+  },
+  {
+    path: 'service',
+    component: ServiceComponent,
+    canActivate: [UserRoleGuard],
+  },
+  {
+    path: 'about',
+    component: AboutComponent,
+    canActivate: [UserRoleGuard],
+  },
+  {
+    path: 'faq',
+    component: FaqComponent,
+    canActivate: [UserRoleGuard],
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
+    canActivate: [UserRoleGuard],
+  },
+  {
+    path: 'businesslist',
+    component: BusinesslistComponent,
+    canActivate: [UserRoleGuard],
+  },
+  {
+    path: 'updatedetail',
+    component: UpdatedetailComponent,
+  },
+  {
+    path: 'booking',
+    component: BookingComponent,
+    canActivate: [BusinessRoleGuard],
+  },
+  {
+    path: 'vehicle',
+    component: VehicleComponent,
+    canActivate: [BusinessRoleGuard],
 
-
-    {
-        path: 'company',
-        component:CompanyComponent
-    },
-    {
-        path: 'map',
-        component:MapComponent
-    },
-    {
-        path: 'basicinfo',
-        component:BasicinfoComponent
-    },
-    {
-        path: 'addvehicle',
-        component:AddvehicleComponent
-    },
-    // {
-    //     path:'basicinfo',
-    //     children:[
-    //         {path:"", component: BasicinfoComponent},
-    //         {path:"add-vehicle", 
-    //             children:[
-    //                 {path:"", component:AddvehicleComponent},
-    //                 {path:"carinfo",component:CarInfoComponent}, 
-    //                 {path:"scooter",component:ScooterComponent},
-    //                 {path:"bicycle",component:BicycleComponent},
-    //             ]
-    //         } 
-    //     ]
-        
-    // },
-    // {path:"add-vehicle", 
-    //     children:[
-    //         {path:"", component:AddvehicleComponent},
-    //         {path:"carinfo",component:CarInfoComponent}, 
-    //         {path:"scooter",component:ScooterComponent},
-    //         {path:"bicycle",component:BicycleComponent},
-    //     ]
-    // } ,
-    {
-        path: 'dashboard',
-        component:DashboardComponent
-    },
-    {
-        path: 'business',
-        component:BusinessComponent
-    },
-    {
-        path: 'search',
-        component:SearchComponent
-    },
-    {
-        path: 'service',
-        component:ServiceComponent
-    },
-     {
-        path: 'about',
-         component:AboutComponent
-     },
-     {
-        path: 'faq',
-         component:FaqComponent
-     },
-     {
-        path: 'contact',
-         component:ContactComponent
-     },
-     {
-        path: 'businesslist',
-         component:BusinesslistComponent
-     },
-     {
-        path: 'updatedetail',
-         component:UpdatedetailComponent
-     },
-     {
-        path:'booking',
-        component:BookingComponent
-     },
-     {
-        path:'vehicle',
-        component:VehicleComponent
-     },
-     {
-        path:'businessnotification',
-        component:BusinessnotificationComponent
-     },
-     {
-        path:'businesshistory',
-        component:BusinesshistoryComponent
-     },
-     {
-        path:'userbookinghistory',
-        component:UserbookinghistoryComponent
-     },
-     {
-        path:'usernotification',
-        component:UsernotificationComponent
-     },
-     {
-        path:'businessdetail/:businessId',
-        component:GetbusinessdetailComponent
-     }
-    
-
-
+  },
+  {
+    path: 'businessnotification',
+    component: BusinessnotificationComponent,
+    canActivate: [BusinessRoleGuard],
+  },
+  {
+    path: 'businesshistory',
+    component: BusinesshistoryComponent,
+    canActivate: [BusinessRoleGuard],
+  },
+  {
+    path: 'userbookinghistory',
+    component: UserbookinghistoryComponent,
+  },
+  {
+    path: 'usernotification',
+    component: UsernotificationComponent,
+    canActivate: [UserRoleGuard],
+  },
+  {
+    path: 'businessdetail/:businessId',
+    component: GetbusinessdetailComponent,
+    canActivate: [UserRoleGuard],
+  },
 ];
