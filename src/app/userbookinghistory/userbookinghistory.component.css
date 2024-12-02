@@ -1,0 +1,82 @@
+:root {
+    --text-color: #0B2154;  /* Dark blue text color  */
+   --primary-color: #863884;  /* Deep purple */
+   --secondary-color: #6A1B9A;  /* Light purple */
+  }
+  
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+  
+  /* Main content styles */
+  .main-content {
+    margin-top: 6vh;
+    padding: 20px;
+    align-items: center;
+  }
+
+  .full-height-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .booking-history-card {
+    border-left: 5px solid var(--primary-color);
+    transition: transform 0.2s, box-shadow 0.2s;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    position: relative; /* Allows absolute positioning within the card */
+}
+
+.vehicle-type {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    text-align: center;
+}
+
+.vehicle-image {
+    width: 90px; /* Adjust the size as needed */
+    height: auto;
+    display: block;
+}
+
+.vehicle-label {
+    margin-top: 5px;
+    font-size: 0.875rem;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+
+.booking-history-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+.booking-history-card .notification-icon {
+    font-size: 2rem;
+    margin-top: 5px;
+    color: var(--secondary-color); /* Use the CSS variable here */
+  }
+.booking-history-card h6 {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.booking-history-card p {
+    color: #343a40;
+}
+.booking-history-card .timestamp {
+    color: #6c757d;
+    font-size: 0.875rem;
+}
+
+
+

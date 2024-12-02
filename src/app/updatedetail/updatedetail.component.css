@@ -1,0 +1,54 @@
+/* Set a white background for the entire page */
+  
+  /* Center the profile page container */
+  .profile-page {
+
+    
+   margin-top: 20vh;
+   margin-left:40vh;
+    max-width: 400px;
+    /* margin: 50px auto; */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #ffffff; /* White background */
+    text-align: center;
+  }
+  
+  /* Style for profile photo */
+  .profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ccc;
+    margin-bottom: 15px;
+  }
+  
+  /* Button styles */
+  .btn {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .btn.change-photo {
+    background-color: #28a745; /* Green for "Change Photo" */
+  }
+  
+  .btn.remove-photo {
+    background-color: #dc3545; /* Red for "Remove Photo" */
+  }
+  
+  /* Hide file input */
+  input[type='file'] {
+    display: none;
+  }
+  

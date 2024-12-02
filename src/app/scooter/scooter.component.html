@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="back">
+        <div class="container">
+            <div class="form-wrapper">
+                <h1>Scooter</h1>
+                <form>
+                    <div class="input-group">
+                        <label for="quantity">Quantity</label>
+                        <select id="quantity">
+                            <option value="" disabled selected>Choose quantity</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+    
+                    <div class="input-group">
+                        <label for="brand-name">Brand Name</label>
+                        <input type="text" id="brand-name" placeholder="Enter brand name">
+                    </div>
+    
+                    <div class="input-group">
+                        <label for="model">Model</label>
+                        <input type="text" id="model" placeholder="Enter model">
+                    </div>
+                    <div class="upload-card">
+                        <p >Business Registration Document</p>
+                        <img src="../assets/images/scooter.png" alt="">
+                        <button>Add a photo</button>
+                    </div>
+                    <div class="add-more">
+                        <p>Do you want to add more vehicles?</p>
+                        <button type="button" class="yes-button" routerLink="/add-vehicle">Yes</button>
+                        <button type="button" class="no-button" routerLink="/dashboard">No</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<router-outlet></router-outlet>
+

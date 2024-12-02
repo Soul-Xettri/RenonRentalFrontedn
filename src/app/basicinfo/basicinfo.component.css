@@ -1,0 +1,148 @@
+/* General container styling */
+.container {
+    margin-bottom: 8vh;
+    /* margin-top: 20vh; */
+    height: 610px;
+    max-width: 1090px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    overflow: hidden;
+    padding: 20px;
+    /* margin-top: 40px; */
+}
+
+/* Left section with triangle background and car image */
+.left-section {
+    flex: 1;
+    position: relative;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 20px;
+    /* z-index: 1; */
+}
+
+.left-section .triangle {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 116%;
+    background: #6B2667;
+    /* Purple background color */
+    clip-path: polygon(0 100%, 100% 100%, 50% 0, 0 0);
+    /* z-index: 1; */
+}
+
+.left-section img {
+    width: 100%;
+    flex: 1;
+    text-align: right;
+    /* z-index: 2; */
+}
+
+.car-image {
+    margin-top: 16vh;
+    width: 90%;
+    flex: 1;
+    text-align: right;
+    /* z-index: 2; */
+}
+
+.car-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+
+/* Form section styling */
+.form-section {
+    width: 45%;
+    /* padding: 20px 40px; */
+    margin-bottom: 10vh;
+}
+
+.form-title {
+    color: #6a1b9a;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-control,
+.business-type-select {
+    border-radius: 5px;
+    border: 1px solid #6a1b9a;
+    color: #6a1b9a;
+}
+
+.form-label {
+    color: #6a1b9a;
+    font-weight: 500;
+}
+
+.btn-submit {
+    background-color: #4a0072;
+    color: #fff;
+    border: none;
+    width: 25%;
+    height: 8%;
+    /* padding: 10px; */
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-left: 20vh;
+}
+
+.btn-submit:hover {
+    background-color: #6a1b9a;
+}
+
+.suggestions-list {
+    border: 1px solid #ddd;
+    max-height: 200px;
+    overflow-y: auto;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    background: #fff;
+    width: auto;
+    z-index: 1000;
+}
+
+.suggestions-list li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestions-list li:hover {
+    background: #f0f0f0;
+}
+
+/* loadingspinner */
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

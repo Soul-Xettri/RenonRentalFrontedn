@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <title>User SignUp</title>
+  </head>
+
+  <body>
+    <div class="signup-container">
+      <div class="signup-content">
+        <div class="leftside">
+          <div class="triangle-bg"></div>
+          <div class="car-image">
+            <img
+              src="../assets/images/hero.png"
+              alt="Blue car"
+              class="car-image"
+            />
+          </div>
+        </div>
+        <div class="form-container">
+          <h2 class="text1">User Mode</h2>
+          <form
+            #signUpForm="ngForm"
+            (ngSubmit)="onSignUp(signUpForm)"
+            novalidate
+          >
+            <input
+              type="text"
+              name="fname"
+              placeholder="First Name"
+              [(ngModel)]="signupObj.firstName"
+              required
+              #fname="ngModel"
+            />
+            <div *ngIf="fname.invalid && fname.touched" class="error-message">
+              First Name is required.
+            </div>
+
+            <input
+              type="text"
+              name="lname"
+              placeholder="Last Name"
+              [(ngModel)]="signupObj.lastName"
+              required
+              #lname="ngModel"
+            />
+            <div *ngIf="lname.invalid && lname.touched" class="error-message">
+              Last Name is required.
+            </div>
+
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              [(ngModel)]="signupObj.email"
+              required
+              email
+              #email="ngModel"
+            />
+            <div *ngIf="email.invalid && email.touched" class="error-message">
+              <div *ngIf="email.errors?.['required']">Email is required.</div>
+              <div *ngIf="email.errors?.['email']">Enter a valid email.</div>
+            </div>
+
+            <div class="password-container">
+              <input
+                [type]="showPassword ? 'text' : 'password'"
+                name="password"
+                placeholder="Password"
+                [(ngModel)]="signupObj.password"
+                required
+                minlength="8"
+                #password="ngModel"
+                [pattern]="passwordPattern"
+              />
+              <i
+                class="fa"
+                [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"
+                (click)="togglePasswordVisibility()"
+              ></i>
+            </div>
+
+            <!-- Password Validation Errors -->
+            <div
+              *ngIf="password.invalid && password.touched"
+              class="error-message"
+            >
+              <div *ngIf="password.errors?.['required']">
+                Password is required.
+              </div>
+              <div *ngIf="password.errors?.['minlength']">
+                Password must be at least 8 characters.
+              </div>
+              <div *ngIf="password.errors?.['pattern']">
+                Password must contain at least one non-alphanumeric character
+                and one digit.
+              </div>
+            </div>
+
+            <input
+              type="tel"
+              name="contact"
+              placeholder="Contact Number"
+              [(ngModel)]="signupObj.contactNumber"
+              [pattern]="contactPattern"
+              required
+              #contact="ngModel"
+            />
+
+            <div
+              *ngIf="contact.invalid && contact.touched"
+              class="error-message"
+            >
+              <div *ngIf="contact.errors?.['required']">
+                Contact number is required.
+              </div>
+              <div *ngIf="contact.errors?.['pattern']">
+                Enter a valid 10-digit phone number.
+              </div>
+            </div>
+
+            <input
+              type="text"
+              name="address"
+              placeholder="Address"
+              [(ngModel)]="signupObj.address"
+              (input)="handleAddressInput($event)"
+              required
+              #address="ngModel"
+            />
+
+            <ul *ngIf="suggestions.length > 0" class="suggestions-list">
+              <li
+                *ngFor="let suggestion of suggestions"
+                (click)="selectSuggestion(suggestion)"
+              >
+                {{ suggestion.display_name }}
+              </li>
+            </ul>
+
+            <button type="submit" [disabled]="signUpForm.invalid || isLoading">
+              Sign Up
+            </button>
+
+            <div *ngIf="isLoading" class="loading-spinner">
+              <div class="spinner"></div>
+            </div>
+          </form>
+
+          <p *ngIf="validationErrors.length > 0">
+            <span *ngFor="let error of validationErrors">
+              <p class="error">{{ error }}</p>
+            </span>
+          </p>
+
+          <p>
+            Already have an account?
+            <a class="login" routerLink="/login">Login</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<router-outlet></router-outlet>

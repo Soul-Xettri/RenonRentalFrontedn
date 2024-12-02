@@ -1,0 +1,25 @@
+<div class="modal" tabindex="-1" [ngClass]="{ 'd-block': showPopup }" style="background-color: rgba(0, 0, 0, 0.5);">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">{{ vehicle?.name }} Details</h5>
+          <button type="button" class="btn-close" aria-label="Close" (click)="closePopup()"></button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center">
+            <img [src]="vehicle?.photo" alt="{{ vehicle?.name }}" class="img-fluid mb-3">
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item"><strong>Brand:</strong> {{ vehicle?.brand }}</li>
+            <li class="list-group-item"><strong>Model:</strong> {{ vehicle?.model }}</li>
+            <li class="list-group-item"><strong>Total Quantity:</strong> {{ vehicle?.totalQuantity }}</li>
+            <li class="list-group-item"><strong>Available:</strong> {{ vehicle?.availabilityStatus ? 'Yes' : 'No' }}</li>
+            <li class="list-group-item"><strong>Hourly Rate:</strong> {{ vehicle?.hourlyRate|currency:'NPR ':'symbol'}}</li>
+            <li class="list-group-item"><strong>Half-Day Rate:</strong> {{ vehicle?.halfDayRate|currency:'NPR ':'symbol' }}</li>
+            <li class="list-group-item"><strong>Full-Day Rate:</strong> {{ vehicle?.fullDayRate|currency:'NPR ':'symbol' }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  

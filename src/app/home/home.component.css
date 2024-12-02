@@ -1,0 +1,354 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
+:root {
+  --text-color:#0B2154 ;
+  --primary-color: #863884; /* Deep purple */
+  --secondary-color: #6A1B9A; /* Light purple */
+}
+h2{
+  color: var(--text-color);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+p{
+  font-family: 'Open Sans', sans-serif;
+}
+/* header sectionn */
+.container h1{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-top: 8vh;
+font-weight: 340;
+margin-left: 6vh;
+  
+}
+.container img{
+  width: 200vh;
+}
+.container a{
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  border-radius: 0%;
+  font-size: 1.1rem;
+  margin-left: 6vh;
+}
+.container a:hover{
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+.carousel-caption {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .7);
+  z-index: 1;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 4%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 3rem;
+  height: 3rem;
+}
+
+@media (max-width: 768px) {
+  #header-carousel .carousel-item {
+      position: relative;
+      min-height: 450px;
+  }
+
+  #header-carousel .carousel-item img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+  }
+}
+
+.page-header {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.page-header-inner {
+  background: rgba(0, 0, 0, .7);
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: var(--light);
+}
+
+/* Animations */
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+@keyframes fadeInUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.fadeInUp {
+  animation-name: fadeInUp;
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.slideInLeft {
+  animation-name: slideInLeft;
+}
+
+/* Remove bounceInRight if no longer needed */
+
+/* New subtle zoom animation */
+@keyframes zoomIn {
+  from {
+      opacity: 0;
+      transform: scale(0.8);
+  }
+  to {
+      opacity: 1;
+      transform: scale(1);
+  }
+}
+
+.zoomIn {
+  animation-name: zoomIn;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+/* Why Choose Section */
+.why-choose {
+  padding: 50px 20px;
+  text-align: center;
+  color: #333;
+  
+}
+
+.why-choose h2 {
+  font-size: 40px;
+
+  margin-bottom: 40px;
+  color: var(--text-color)
+}
+
+.features {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.feature-item {
+  max-width: 200px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+  /* animation:infinite; */
+
+  animation-delay: 0.3s;
+}
+
+.feature-item:hover {
+  transform: translateY(-10px) scale(1.05); /* Slight lift and scale on hover */
+}
+
+.feature-item img {
+  width: 50px;
+  margin-bottom: 10px;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Vehicles Section */
+.vehicles {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/assets/images/mainsecond.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 50px 20px;
+  text-align: center;
+  animation: fadeIn 1.5s ease;
+}
+
+.vehicles h2 {
+  color: var(--text-color);
+  margin-bottom: 40px;
+  font-size: 2em;
+  font: montserrat;
+}
+
+.vehicle-items {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.vehicle-item {
+  position: relative;
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.vehicle-box {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 20px;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vehicle-box:hover {
+  transform: translateY(-10px); /* Lift effect on hover */
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+}
+
+.vehicle-box img {
+  width: 100%;
+  height: auto;
+  max-width: 150px;
+  transition: transform 0.3s ease;
+}
+
+.vehicle-box:hover img {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .features, .vehicle-items {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+
+/* -----------faq--------- */
+.faq{
+  padding: 10px 12%;
+  text-align:center ;
+  font-size: 18px;
+  }
+  .faq h2{
+    margin-top: 6vh;
+      font-weight: 500;
+      font-size:40px ;
+
+      color: var(--text-color);
+  }
+  .accordion{
+      margin: 60px auto;
+      width: 100%;
+      max-width: 750px;
+  
+  }
+  .accordion a{
+    color: var(--primary-color);
+    /* margin-top: 10vh; */
+    margin-left: 70vh;
+
+  }
+  .accordion a:hover{
+    color: var(--secondary-color);
+    
+
+  }
+  .accordion li{
+      list-style: none;
+      width: 100%;
+      padding: 5px;  
+  }
+  .accordion li label{
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      font-size: 18px;
+      font-weight: 500;
+      background: var(--primary-color);
+      color: #fff;
+      margin-bottom: 2px;
+      cursor: pointer;
+      position: relative;
+  }
+  
+  label::after{
+      content:'+';
+      font-size: 34px;
+      position: absolute;
+      right: 20px;
+      transition: transform 0.5s;
+    }
+  input[type="radio"]{
+      display: none;
+  }
+  .accordion .content{
+    color: #fff;
+      background:#521c50;
+      text-align: left;
+      padding: 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s, padding 0.5s;
+  }
+  .accordion input[type="radio"]:checked + label + .content{
+      max-height: 600px;
+      padding: 30px 20px;
+  }
+  .accordion input[type="radio"]:checked + label::after {
+      transform: rotate(135deg);
+  }
+
+

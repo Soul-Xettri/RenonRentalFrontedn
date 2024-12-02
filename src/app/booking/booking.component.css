@@ -1,0 +1,143 @@
+  /* Sidebar */
+  * font
+  
+
+  .row a {
+    font-size: 18px;
+  }
+
+  .sidebar {
+    background-color: #212529;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    color: white;
+    z-index: 1000;
+    
+  }
+
+  .sidebar .nav-link {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease-in-out;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+
+  .sidebar .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+    /* Hover animation */
+  }
+
+  .sidebar .nav-link i {
+    color: white;
+  }
+
+ h2{
+  font-size: 40px;
+  margin-top: 8vh;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+
+
+  .table img {
+    border-radius: 5px;
+  }
+
+  .badge {
+    padding: 0.4em;
+  }
+
+  .container {
+    margin-left: 18%;
+    /* Offset the sidebar width */
+  }
+
+  /* General table responsiveness */
+.table-responsive {
+  overflow-x: auto;
+}
+
+  /* Responsive adjustments */
+ @media (max-width: 992px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  main {
+    margin-left: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    position: relative;
+    height: 40vh;
+    /* Set height to 60% of the viewport height */
+    min-height: unset;
+  }
+
+  .sidebar .nav-link {
+    display: inline-block;
+    margin: 5px;
+  }
+
+  main {
+    margin-left: 0;
+  }
+
+  table th, table td {
+    padding: 8px; /* Reduce padding to make the table fit better */
+    font-size: 14px; /* Decrease font size */
+  }
+
+  .img-thumbnail {
+    width: 60px; /* Reduce image size for mobile */
+  }
+
+  .btn {
+    padding: 2px 5px; /* Reduce button padding */
+    font-size: 12px; /* Decrease button font size */
+  }
+
+  .badge {
+    font-size: 12px; /* Reduce badge font size */
+  }
+
+  h2 {
+    font-size: 28px; /* Reduce heading size */
+  }
+}
+
+@media (max-width: 576px) {
+.sidebar {
+    height: 40vh; /* Set height to 60% of the viewport height */
+    min-height: unset; /* Override min-height to allow setting a fixed height */
+  }
+}
+
+.badge {
+  font-size: 0.75rem;
+  padding: 0.25em 0.6em;
+}
+
+.nav-item.position-relative {
+  padding-right: 15px; /* Make room for the badge */
+}
+
+/* Animation for new notifications */
+@keyframes pulse {
+  0% { transform: scale(1) translate(-50%, -50%); }
+  50% { transform: scale(1.2) translate(-50%, -50%); }
+  100% { transform: scale(1) translate(-50%, -50%); }
+}
+
+.badge.bg-danger {
+  animation: pulse 1s ease-in-out;
+}

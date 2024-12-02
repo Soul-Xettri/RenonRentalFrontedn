@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business List</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container business-list">
+        <div class="rental-details row">
+            <div class="col-md-3 pickup-info">
+                <span class="label">Current Location</span>
+                <span class="location">User pickup location</span>
+                <span class="date-time">Mon, Nov 18, 12:00 PM</span>
+            </div>
+            <div class="col-md-3 return-info">
+                <span class="label">Destination Location</span>
+                <span class="location">User Destination Location</span>
+                <span class="date-time">Tue, Nov 19, 12:00 PM</span>
+            </div>
+        </div>
+
+        <div class="row vehicle-list">
+            <div class="col-md-4 col-sm-6 vehicle-card-wrapper" *ngFor="let vehicle of vehicles">
+                <div class="vehicle-card">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h2 class="mb-0">{{ vehicle.businessName }}</h2>
+                        <div class="rating d-flex align-items-center">
+                            <span class="star me-1">★</span>
+                            <span>{{ vehicle.rating }}</span>
+                        </div>
+                    </div>
+                    <p>
+                        <i class="fas fa-map-marker-alt text-light-dark"></i>
+                        {{ vehicle.distance }} Km away
+                    </p>
+                    <button (click)="viewMore(vehicle)" class="btn view-more">View More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+
+    <!-- <div class="modal-backdrop" *ngIf="showPaymentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="fas fa-money-check-alt"></i> Payment Method
+                </h5>
+                <button class="btn-close" (click)="closePaymentModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Please choose your preferred payment method to proceed:</p>
+                <div class="payment-options">
+                    <button class="payment-option" [class.selected]="paymentMethod === 'cash'"
+                        (click)="selectPaymentMethod('cash')">
+                        <i class="fas fa-money-bill-wave payment-option-icon"></i> Cash after visit
+                    </button>
+                    <button class="payment-option" [class.selected]="paymentMethod === 'online'"
+                        (click)="selectPaymentMethod('online')">
+                        <i class="fas fa-credit-card payment-option-icon"></i> Online
+                    </button>
+                </div>
+                <div class="payment-total">
+                    <p><strong>Total:</strong> Rs 5,000/-</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-proceed" (click)="processPayment()">Proceed to Pay</button>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

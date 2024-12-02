@@ -1,0 +1,359 @@
+:root {
+    --primary-color: #863884; /* Deep purple */
+    --secondary-color: #6A1B9A; /* Light purple */
+    --bg-color: #eeeff1; /* Background color */
+    --text-color: #333; /* Dark text color */
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Updated to a modern font */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: var(--bg-color);
+    padding: 10px 60px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.navbar-nav {
+    margin-left: auto;
+    gap: 25px; /* Adjust gap between navigation items */
+}
+
+.nav-item {
+    list-style: none;
+}
+
+.nav-link {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    text-decoration: none;
+    position: relative;
+    font-weight: 500; /* Slightly bolder for a more professional feel */
+    transition: color 0.3s ease;
+}
+
+/* Active link color */
+.nav-link.active,
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+/* Underline effect on hover and active links */
+.nav-link:hover::after,
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+/* Navbar actions (buttons) */
+.d-flex .btn {
+    padding: 8px 15px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Search button */
+.d-flex .btn-link {
+    color: var(--secondary-color);
+    font-size: 1.4rem;
+    background-color: transparent;
+    border: none;
+    padding: 5px 10px; /* Padding around the icon */
+    margin-right: 10px; /* Add a gap between the icon and button */
+}
+
+/* Search button */
+.d-flex .btn-notification {
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  background-color: transparent;
+  border: none;
+  padding: 5px 10px; /* Padding around the icon */
+  margin-right: 2px; /* Add a gap between the icon and button */
+}
+
+/* Search button */
+.d-flex .btn-notification:hover {
+  color: var(--secondary-color);
+
+}
+
+/* Hover effect on search button */
+.d-flex .btn-link:hover {
+    color: var(--primary-color);
+}
+
+/* Signup button */
+.d-flex .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+}
+
+/* Signup button hover */
+.d-flex .btn-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+/* Login button */
+.d-flex .btn-outline-primary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+/* Login button hover */
+.d-flex .btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+/* Profile button */
+.d-flex .btn-secondary {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+/* Profile button hover */
+.d-flex .btn-secondary:hover {
+    background-color: var(--primary-color);
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 992px) {
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .navbar-nav {
+        gap: 15px;
+    }
+
+    .d-flex .btn {
+        font-size: 1rem;
+        padding: 8px 12px;
+    }
+
+    .d-flex .btn-link {
+        font-size: 1.2rem;
+    }
+}
+
+/* Active state for links when clicked */
+.navbar-nav .nav-item.active .nav-link {
+    color: var(--primary-color) !important; /* Ensure active link stays in primary color */
+}
+
+.navbar-nav .nav-item a:focus,
+.navbar-nav .nav-item a:active {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Adding subtle hover effect on navbar items */
+.navbar-nav .nav-link:hover {
+    transform: translateY(-2px);
+    transition: transform 0.2s ease;
+}
+/* Add margin to the buttons to control the gap */
+.d-flex .btn-primary {
+    margin-right: 15px; /* Adjust the gap between the buttons */
+}
+
+/* Or alternatively, for the second button */
+.d-flex .btn-outline-primary {
+    margin-left: 15px; /* Adjust the gap between the buttons */
+}
+/* Change color of the search icon */
+.d-flex .btn-link i.fas.fa-search {
+    color: var(--primary-color); /* Change this to your desired color */
+}
+
+/* Hover effect on search button */
+.d-flex .btn-link:hover i.fas.fa-search {
+    color: var(--secondary-color); /* Change to a different color on hover */
+}
+
+
+/* User Profile Modal Backdrop */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+  }
+  
+  /* User Profile Modal Content */
+  .modal-content {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    max-width: 450px;
+    width: 100%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    animation: slideDown 0.5s ease-out;
+    color: var(--text-color);
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+  }
+  
+  .modal-header h5 {
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    color: var(--primary-color);
+    gap: 10px;
+    margin: 0;
+  }
+  
+  
+  
+  .btn-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: var(--text-color);
+  }
+  
+  .modal-body {
+    margin-top: 20px;
+    padding: 0 10px;
+    color: var(--text-color);
+  }
+  
+  .profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: block;
+  }
+  
+  .modal-body p {
+    font-size: 16px;
+    color: var(--text-color);
+    margin: 15px 0;
+    text-align: left;
+    line-height: 1.5;
+  }
+  
+  .modal-body p strong {
+    font-weight: bold;
+    color: var(--primary-color);
+  }
+  
+  .modal-footer {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+    margin-top: 15px;
+    color: var(--text-color);
+  }
+  
+  .btn-edit {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+    font-size: 16px;
+    padding: 10px 30px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .btn-edit:hover {
+    background-color: var(--secondary-color) !important;
+  }
+  
+  .btn-cancel {
+    background-color: #aaa !important;
+    color: white !important;
+    font-size: 16px;
+    padding: 10px 30px;
+    border-radius: 8px;
+    border: none !important;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .btn-cancel:hover {
+    background-color: #888 !important;
+  }
+  
+  @keyframes slideDown {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+  
+    
+  }
+  .profile-icon-button {
+    
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  .profile-icon-button .fa-user-circle {
+    font-size: 2em; /* Adjust the size as needed */
+    color: var(--primary-color);      /* Adjust the color as needed */
+  }
+
+
+.profile-icon-button {
+    
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  .profile-icon-button .fa-user-circle {
+    font-size: 2em; /* Adjust the size as needed */
+    color: var(--primary-color);      /* Adjust the color as needed */
+  }

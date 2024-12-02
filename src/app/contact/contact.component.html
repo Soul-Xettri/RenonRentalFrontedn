@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    />
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    rel="stylesheet"
+    />
+    <style>
+        .icon-purple {
+            color: #863884 !important; /* Define your preferred color */
+        }
+        
+            /* Custom button color */
+            .custom-btn {
+            background-color: #863884; /* Your custom color */
+            color: white; /* Text color */
+            border: none; /* Remove border */
+        }
+
+        /* Button hover effect */
+        .custom-btn:hover {
+            background-color: #6A1B9A; /* Color on hover */
+            color: white; /* Ensure text color stays white */
+        }
+        
+    .bg-custom {
+        background-color: #863884;
+    }
+
+    /* Increase the icon size */
+    .social-icons i {
+        font-size: 2.5rem; /* Increase size to 2.5 times */
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    /* Change icon color on hover */
+    .social-icons a:hover i {
+        color: white; /* Ensure text stays white on hover */
+        transform: scale(1.1); /* Slightly increase size on hover */
+    }
+
+    /* Specific hover colors for each icon */
+    .social-icons a.linkedin:hover i {
+        color: #0077b5; /* LinkedIn color */
+    }
+
+    .social-icons a.facebook:hover i {
+        color: #4267B2; /* Facebook color */
+    }
+
+    .social-icons a.instagram:hover i {
+        color: #e4405f; /* Instagram color */
+    }
+
+    </style>
+</head>
+<body>
+    <div class="container-fluid p-0">
+        <!-- Hero Section -->
+        <section
+            class="hero-section text-center text-white py-5 d-flex align-items-center justify-content-center"
+            style="background: url('/assets/images/secondd.jpg') no-repeat center center/cover; height: 60vh;"
+        >
+            <div class="container">
+                <h1 class="display-4 fw-bold">Explore More With RevOn Rental</h1>
+                <p class="lead mt-3">Your journey starts with us. Affordable, reliable, and always tailored to your needs.</p>
+            </div>
+        </section>
+
+    
+
+       <!-- Contact Section -->
+        <section class="contact-form py-5">
+            <div class="container">
+                <h2 class="text-center fw-bold mb-4">Get In Touch</h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <form (ngSubmit)="sendEmail()" class="bg-white shadow p-4 rounded">
+                            <div class="mb-3">
+                              <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                class="form-control"
+                                placeholder="Your Name"
+                                [(ngModel)]="formData.name"
+                                required
+                              />
+                            </div>
+                            <div class="mb-3">
+                              <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                class="form-control"
+                                placeholder="Your Email"
+                                [(ngModel)]="formData.email"
+                                required
+                              />
+                            </div>
+                            <div class="mb-3">
+                              <textarea
+                                id="message"
+                                name="message"
+                                rows="5"
+                                class="form-control"
+                                placeholder="Your Message"
+                                [(ngModel)]="formData.message"
+                                required
+                              ></textarea>
+                            </div>
+                            <div *ngIf="successMessage" class="alert alert-success">
+                              {{ successMessage }}
+                            </div>
+                            <div *ngIf="errorMessage" class="alert alert-danger">
+                              {{ errorMessage }}
+                            </div>
+                            <div class="text-center">
+                              <button
+                                type="submit"
+                                class="btn custom-btn px-4 py-2"
+                                [disabled]="isSubmitting"
+                              >
+                                Send Message
+                              </button>
+                            </div>
+                          </form>
+                          
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+ <!-- Footer -->
+ <footer class="py-4 bg-custom text-white text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <i class="fa-solid fa-phone"></i>
+                <p>9856342592 (+977)</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <i class="fas fa-envelope"></i>
+                <p>revonrental345gmail.com</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <i class="fas fa-clock"></i>
+                <p>24/7</p>
+            </div>
+        </div>
+        <div class="social-icons">
+            <a href="#" class="text-white me-3 linkedin"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="text-white me-3 facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="text-white instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+</footer>
+    
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <title>Search Form</title>
+</head>
+
+<body>
+
+    <div class="container-fluid search-container">
+        <h2 class="text-center mb-4">FIND BEST VEHICLE WITH REVON RENTAL</h2>
+        <p class="text-center mb-4">Select your vehicle, enter your pickup and destination locations, and schedule your
+            ride easily!</p>
+
+
+        <!-- Vehicle Selection Buttons -->
+        <div class="vehicle-type mb-4">
+            <button class="car" [ngClass]="{'selected': selectedVehicle === 'car'}" (click)="selectVehicle('car')">
+                <img src="../assets/images/car.png" alt="Blue car">
+            </button>
+            <button class="bike" [ngClass]="{'selected': selectedVehicle === 'bike'}" (click)="selectVehicle('bike')">
+                <img src="../assets/images/bike1.png" alt="bike">
+            </button>
+            <button class="bicycle" [ngClass]="{'selected': selectedVehicle === 'cycle'}"
+                (click)="selectVehicle('cycle')">
+                <img src="../assets/images/cycle.png" alt="cycle">
+            </button>
+        </div>
+
+
+        <div class="search-form">
+            <!-- Pickup Location with Autocomplete -->
+            <div class="form-row align-items-center mb-3 position-relative">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <input type="text" [(ngModel)]="pickupLocation" class="form-control"
+                            placeholder="Enter your current location" (input)="filterLocation($event, 'pickup')" id="pickup-input">
+                        <div *ngIf="pickupFilteredLocations.length > 0" class="suggestions-list">
+                            <div *ngFor="let location of pickupFilteredLocations" class="suggestion-item"
+                                (click)="selectSuggestion(location, 'pickup')">
+                                {{ location.display_name }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <input type="date" [(ngModel)]="pickupDate" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <input type="time" [(ngModel)]="pickupTime" class="form-control">
+                </div>
+            </div>
+
+            <!-- Destination Location with Autocomplete -->
+            <div class="form-row align-items-center mb-3 position-relative">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <input type="text" [(ngModel)]="destinationLocation" class="form-control"
+                            placeholder="Enter your destination location" (input)="filterLocation($event, 'destination')" id="destination-input">
+                        <div *ngIf="destinationFilteredLocations.length > 0" class="suggestions-list">
+                            <div *ngFor="let location of destinationFilteredLocations" class="suggestion-item"
+                                (click)="selectSuggestion(location, 'destination')">
+                                {{ location.display_name }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <input type="date" [(ngModel)]="destinationDate" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <input type="time" [(ngModel)]="destinationTime" class="form-control">
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Button Centered Below the Search Form -->  
+        <div class="text-center">
+            <button class="search btn btn-primary mt-3" routerLink="/businesslist" (click)="onSubmit()">
+                Search</button>
+        </div>
+    </div>
+
+       
+    <router-outlet></router-outlet>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

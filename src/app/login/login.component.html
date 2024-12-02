@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User SignUp</title>
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="login-content">
+            <div class="leftside">
+                <div class="triangle-bg"></div>
+                <div class="car-image">
+                    <img src="../assets/images/hero.png" alt="Blue car" class="car-image">
+                </div>
+            </div>
+            <div class="form-container">
+
+                <form (ngSubmit)="onLogin()">
+                    <img src="../assets/images/user_icon3.png" alt="Blue car" class="user_icon" style="width: 100px; height: auto;">
+                    <h1>WELCOME</h1>
+                    <input type="email" name="email" placeholder="Email" [(ngModel)]="loginObj.email" required>
+                    <div class="password-container">
+                        <input [type]="showPassword ? 'text' : 'password'" name="password" placeholder="Password" [(ngModel)]="loginObj.password" required minlength="6">
+                        <i class="fa" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'" (click)="togglePasswordVisibility()"></i>
+                      </div>
+                    
+                      <button type="submit" [disabled]="isLoading">Login</button>
+                      <!-- Loading Spinner -->
+                      <div *ngIf="isLoading" class="loading-spinner">
+                          <div class="spinner"></div>
+                      </div>
+                </form>
+                <p>Don't have an account? <a class="sign-up" routerLink="/signup">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+<router-outlet></router-outlet>

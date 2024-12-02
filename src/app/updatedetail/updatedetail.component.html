@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="profile-page">
+        <div class="profile-photo-section">
+          <!-- Display profile photo -->
+       <p>Profile</p>
+          <img [src]="profilePhoto" alt="Profile Photo" class="profile-photo" />
+      
+          <div class="photo-buttons">
+            <!-- Button for changing photo -->
+            <label class="btn change-photo">
+              Change Photo
+              <input
+                type="file"
+                accept="image/*"
+                (change)="changePhoto($event)"
+                hidden
+              />
+            </label>
+      
+            <!-- Button for removing photo -->
+            <button class="btn remove-photo" (click)="removePhoto()">
+              Remove Photo
+            </button>
+          </div>
+        </div>
+      </div>
+      
+</body>
+</html>
+  

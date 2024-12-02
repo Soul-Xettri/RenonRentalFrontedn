@@ -1,0 +1,101 @@
+/* Theme Colors */
+:root {
+    --primary-color: #863884; /* Deep purple */
+    --secondary-color: #6A1B9A; /* Light purple */
+}
+
+/* Vehicle Card Styling */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Selected Card Styling */
+.selected-card {
+    border: 2px solid var(--primary-color);
+    background-color: #f9f5fc;
+}
+
+
+/* Business Details Styling */
+p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    color: #333;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    flex: 1; /* This ensures the container stretches to fill the available space */
+}
+h1{
+    color: var(--primary-color);
+}
+h2{
+    font-size: 50px;
+    color: var(--primary-color);
+  
+    
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+h3{
+    font-size: 30px;
+    color: var(--primary-color);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+.rating {
+    color: #ffc107; /* Yellow for stars */
+    font-weight: bold;
+}
+.badge {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    background-color:var(--primary-color); /* Vehicle detail name color */
+    color: #fff; /* White text */
+}
+button {
+    background-color: var(--primary-color); /* Blue button */
+    border: none;
+    color: #fff; /* White text */
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+button:hover {
+    background-color: var(--secondary-color); /* Deep purple on hover */
+    color: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.selectable-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+  
+  .selectable-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+  
+  .selected-card {
+    border: 2px solid #863884 !important;
+    box-shadow: 0 4px 15px rgba(134, 56, 132, 0.2) !important;
+    background-color: rgba(134, 56, 132, 0.05);
+  }
+  
+  .vehicle-image {
+    max-height: 200px;
+    object-fit: cover;
+  }

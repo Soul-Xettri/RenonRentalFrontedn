@@ -1,0 +1,193 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+/* Hero Section */
+.hero-section {
+    margin-top: 10vh;
+    position: relative;
+    text-align: center;
+}
+
+.hero-image {
+    background-image: url('/assets/images/mountain.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeInImage 1.5s ease-out;
+}
+
+.hero-image h1 {
+    font-size: 48px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeInText 1.5s ease-out 0.5s; /* Delayed for smooth entrance */
+}
+
+@keyframes fadeInImage {
+    from {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Services Section */
+.services-content {
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.services-content p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.8;
+    animation: fadeIn 1.5s ease-out;
+}
+
+/* Optional Services Header */
+.optional-services h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 40px;
+    font-weight: bold;
+    animation: fadeIn 1.5s ease-out;
+}
+
+/* Service Items (Cards) */
+.service-items {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0 20px;
+    animation: fadeInUp 1.5s ease-out;
+}
+
+/* Each Service Box */
+.service-box {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 22%;
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.service-box h3 {
+    font-size: 1.6rem;
+    color: #333;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.service-box p {
+    font-size: 1rem;
+    color: #777;
+    line-height: 1.6;
+}
+
+.service-box:hover h3 {
+    color: #5a8f8a; /* Accent color */
+}
+
+/* Footer Section */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    animation: fadeInFooter 1.5s ease-out;
+}
+
+@keyframes fadeInFooter {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.footer-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    animation: fadeInItem 1s ease-out 0.5s;
+}
+
+@keyframes fadeInItem {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.footer-item i {
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: #d4b2d8;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-item i:hover {
+    color: #ffffff;
+    transform: scale(1.2);
+}
+
+.footer-item p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 24px;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #d4b2d8;
+    transform: scale(1.1);
+}

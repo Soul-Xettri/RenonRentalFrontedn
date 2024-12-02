@@ -1,0 +1,128 @@
+<div class="popup-overlay" (click)="closePopup()"></div>
+<div class="popup-content">
+  <!-- Close Icon -->
+  <span class="close-icon" (click)="closePopup()">&#x2715;</span>
+
+  <!-- Success Message -->
+  <div *ngIf="showSuccessMessage" class="alert alert-success" role="alert">
+    Vehicle added successfully!
+  </div>
+
+  <!-- Vehicle Form -->
+  <form class="vehicle-form" (submit)="onSubmit($event)">
+    <!-- Vehicle Type Selection -->
+    <div class="form-group">
+      <label for="vehicleType">Vehicle Type</label>
+      <select
+        id="vehicleType"
+        [(ngModel)]="VehicleType"
+        name="vehicleType"
+        (change)="onVehicleChange()"
+      >
+        <option value="car">Car</option>
+        <option value="scooter">Scooter/Bike</option>
+        <option value="bicycle">Bicycle</option>
+      </select>
+    </div>
+
+    <!-- Quantity Selection -->
+    <div class="form-group">
+      <label for="quantity">Quantity</label>
+      <input
+        type="number"
+        id="quantity"
+        name="NumberOfVehicle"
+        min="1"
+        [(ngModel)]="NumberOfVehicle"
+      />
+    </div>
+
+    <!-- Brand and Model (Visible for all vehicle types) -->
+    <div
+      *ngIf="
+        VehicleType === 'car' ||
+        VehicleType === 'scooter' ||
+        VehicleType === 'bicycle'
+      "
+      class="form-group"
+    >
+      <label for="brandName">Brand Name</label>
+      <input type="text" id="brandName" name="Brand" [(ngModel)]="Brand" />
+
+      <label for="model">Model</label>
+      <input type="text" id="model" name="Model" [(ngModel)]="Model" />
+    </div>
+
+    <!-- Photo Upload -->
+    <div
+      *ngIf="
+        VehicleType === 'car' ||
+        VehicleType === 'scooter' ||
+        VehicleType === 'bicycle'
+      "
+      class="form-group"
+    >
+      <label for="photo">Add Photo</label>
+      <input
+        type="file"
+        id="Photo"
+        name="Photo"
+        (change)="onFileChange($event)"
+        required
+      />
+    </div>
+
+    <!-- Availability Status -->
+    <div class="form-group">
+      <label for="status">Status</label>
+      <select
+        id="status"
+        [(ngModel)]="AvailabilityStatus"
+        name="AvailabilityStatus"
+      >
+        <option value="true">Available</option>
+        <option value="false">Unavailable</option>
+      </select>
+    </div>
+
+    <!-- Price Section: Input for all three pricing periods in one row -->
+    <div class="rate-row">
+      <div class="form-group">
+        <label for="hourlyRate">Hourly Rate</label>
+        <input
+          type="number"
+          id="hourlyRate"
+          name="HourlyRate"
+          placeholder="Hourly rate"
+          [(ngModel)]="HourlyRate"
+          min="0"
+        />
+      </div>
+      <div class="form-group">
+        <label for="halfDayRate">Half-Day Rate</label>
+        <input
+          type="number"
+          id="halfDayRate"
+          name="HalfDayRate"
+          placeholder="Half-day rate"
+          [(ngModel)]="HalfDayRate"
+          min="0"
+        />
+      </div>
+      <div class="form-group">
+        <label for="fullDayRate">Full-Day Rate</label>
+        <input
+          type="number"
+          id="fullDayRate"
+          name="FullDayRate"
+          placeholder="Full-day rate"
+          [(ngModel)]="FullDayRate"
+          min="0"
+        />
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit">Submit</button>
+  </form>
+</div>

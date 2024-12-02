@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vehicle</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FontAwesome for Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <nav class="col-lg-2 col-md-3 col-sm-12 sidebar d-flex flex-column p-3">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link text-white" (click)="navigateTo('/dashboard')"><i class="fas fa-tachometer-alt me-2"></i>
+              Dashboard</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link text-white" (click)="navigateTo('/booking')"><i class="fas fa-calendar-check me-2"></i>
+              Booking</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" (click)="navigateTo('/vehicle')"><i class="fas fa-car me-2"></i> Vehicles</a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link text-white position-relative"
+              (click)="navigateTo('/businessnotification')"
+            >
+              <i class="fas fa-bell me-2"></i>
+              Notifications
+              <span
+                class="badge bg-danger position-absolute top-0 start-100 translate-middle"
+                *ngIf="unreadNotifications >= 0"
+              >
+                {{ unreadNotifications }}
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+          <li class="nav-item">
+            <a class="nav-link text-white" (click)="navigateTo('/businesshistory')"><i class="fas fa-history me-2"></i>
+              History</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main Content -->
+      <div class="col-md-10 offset-md-2 mt-5">
+        <router-outlet></router-outlet>
+
+        <!-- Cars Section -->
+        <div class="vehicle-section mb-5">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="section-title">Cars</h2>
+          </div>
+          <button class="btn btn-success btn-sm mb-4" (click)="openAddInventoryPopup()">
+            <i class="fas fa-plus-circle"></i> Add a New Car to Inventory
+          </button>
+
+          <!-- Add Vehicle Modal -->
+          <div class="modal fade" id="addVehicleModal" tabindex="-1" aria-labelledby="addVehicleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="addVehicleModalLabel">Add a New Vehicle</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <!-- Vehicle Form -->
+                  <form (ngSubmit)="onSubmit($event)">
+                    <div class="form-group mb-3">
+                      <label for="vehicleType">Vehicle Type</label>
+                      <select id="vehicleType" [(ngModel)]="VehicleType" name="vehicleType" class="form-select"
+                        (change)="onVehicleChange()">
+                        <option value="car">Car</option>
+                        <option value="scooter">Scooter/Bike</option>
+                        <option value="bicycle">Bicycle</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group mb-3">
+                      <label for="quantity">Quantity</label>
+                      <input type="number" id="quantity" name="NumberOfVehicle" min="1" [(ngModel)]="NumberOfVehicle"
+                        class="form-control">
+                    </div>
+
+                    <div *ngIf="VehicleType === 'car' || VehicleType === 'scooter'" class="form-group mb-3">
+                      <label for="brandName">Brand Name</label>
+                      <input type="text" id="brandName" name="Brand" [(ngModel)]="Brand" class="form-control">
+
+                      <label for="model" class="mt-2">Model</label>
+                      <input type="text" id="model" name="Model" [(ngModel)]="Model" class="form-control">
+                    </div>
+
+                    <div class="form-group mb-3">
+                      <label for="photo">Add Photo</label>
+                      <input type="file" id="photo" name="Photo" (change)="onFileChange($event)" class="form-control"
+                        required>
+                    </div>
+
+                    <div class="form-group mb-3">
+                      <label for="status">Status</label>
+                      <select id="status" [(ngModel)]="AvailabilityStatus" name="AvailabilityStatus"
+                        class="form-select">
+                        <option value="true">Available</option>
+                        <option value="false">Unavailable</option>
+                      </select>
+                    </div>
+
+                    <div class="rate-row d-flex justify-content-between mb-3">
+                      <div class="form-group me-2">
+                        <label for="hourlyRate">Hourly Rate</label>
+                        <input type="number" id="hourlyRate" name="HourlyRate" [(ngModel)]="HourlyRate"
+                          class="form-control" min="0">
+                      </div>
+                      <div class="form-group me-2">
+                        <label for="halfDayRate">Half-Day Rate</label>
+                        <input type="number" id="halfDayRate" name="HalfDayRate" [(ngModel)]="HalfDayRate"
+                          class="form-control" min="0">
+                      </div>
+                      <div class="form-group">
+                        <label for="fullDayRate">Full-Day Rate</label>
+                        <input type="number" id="fullDayRate" name="FullDayRate" [(ngModel)]="FullDayRate"
+                          class="form-control" min="0">
+                      </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <app-addvehicle *ngIf="showAddInventoryPopup" (close)="closeAddInventoryPopup()"></app-addvehicle>
+
+
+          <div class="row">
+            <div *ngFor="let car of vehicles.cars" class="col-md-4 col-lg-3 mb-4">
+              <div class="card vehicle-card p-3 text-center">
+                <!-- Pencil Icon Trigger for Dropdown -->
+                <i class="fas fa-pencil-alt position-absolute top-0 end-0 p-2" style="color: #333; cursor: pointer;"
+                  data-bs-toggle="dropdown" aria-expanded="false"></i>
+
+                <!-- Dropdown Menu for Update and Delete -->
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li>
+                    <a class="dropdown-item" (click)="openUpdateModal(car)">Update</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-danger" (click)="openDeleteModal(car.id)">Delete</a>
+                  </li>
+                </ul>
+                <img *ngIf="car.photoUrl" [src]="car.photoUrl" alt="{{ car.brand }} - {{ car.model }}"
+                  class="card-img-top img-fluid small-img" />
+                <div class="card-body">
+                  <h5 class="card-title">{{ car.brand }} - {{ car.model }}</h5>
+                  <p class="mb-2">
+                    <span class="badge bg-secondary">Quantity: {{ car.totalQuantity }}</span>
+                  </p>
+                  <p class="availability-text">
+                    <span [ngStyle]="{ color: car.availabilityStatus ? 'green' : 'red' }">
+                      Availability: {{ car.availabilityStatus ? 'Yes' : 'No' }}
+                    </span>
+                  </p>
+                  <button class="btn btn-primary w-100" (click)="viewMore(car)">
+                    View Detailed Info
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Vehicle Action Modal (Update/Delete) -->
+            <app-updatedelete [vehicle]="selectedCar" [isUpdateMode]="isUpdateMode" (onUpdate)="handleUpdate($event)"
+              (onDelete)="handleDelete($event)">
+            </app-updatedelete>
+
+          </div>
+        </div>
+        <app-viewdetailpopup [vehicle]="selectedVehicle" [showPopup]="showPopup" (close)="closePopup()">
+        </app-viewdetailpopup>
+
+        <!-- Bikes Section -->
+        <div class="vehicle-section mb-5">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="section-title">Bikes</h2>
+          </div>
+          <button class="btn btn-success btn-sm mb-4" (click)="openAddInventoryPopup()">
+            <i class="fas fa-plus-circle"></i> Add a New Bike to Inventory
+          </button>
+          <app-addvehicle *ngIf="showAddInventoryPopup" (close)="closeAddInventoryPopup()"></app-addvehicle>
+
+
+          <div class="row">
+            <div *ngFor="let bike of vehicles.bikes" class="col-md-4 col-lg-3 mb-4">
+              <div class="card vehicle-card p-3 text-center">
+                <!-- Pencil Icon Trigger for Dropdown -->
+                <i class="fas fa-pencil-alt position-absolute top-0 end-0 p-2" style="color: #333; cursor: pointer;"
+                  data-bs-toggle="dropdown" aria-expanded="false"></i>
+
+                <!-- Dropdown Menu for Update and Delete -->
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li>
+                    <a class="dropdown-item" (click)="openUpdateModal(bike)">Update</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-danger" (click)="openDeleteModal(bike.id)">Delete</a>
+                  </li>
+                </ul>
+                <img *ngIf="bike.photoUrl" [src]="bike.photoUrl" alt="{{ bike.brand }} - {{ bike.model }}"
+                  class="card-img-top img-fluid small-img" />
+                <div class="card-body">
+                  <h5 class="card-title">{{ bike.brand }} - {{ bike.model }}</h5>
+                  <p class="mb-2">
+                    <span class="badge bg-secondary">Quantity: {{ bike.totalQuantity }}</span>
+                  </p>
+                  <p class="availability-text">
+                    <span [ngStyle]="{ color: bike.availabilityStatus ? 'green' : 'red' }">
+                      Availability: {{ bike.availabilityStatus ? 'Yes' : 'No' }}
+                    </span>
+                  </p>
+                  <button class="btn btn-primary w-100" (click)="viewMore(bike)">
+                    View Detailed Info
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Vehicle Action Modal (Update/Delete) -->
+            <app-updatedelete [vehicle]="selectedCar" [isUpdateMode]="isUpdateMode" (onUpdate)="handleUpdate($event)"
+              (onDelete)="handleDelete($event)">
+            </app-updatedelete>
+          </div>
+          <!-- Vehicle Detail Popup Component -->
+          <app-viewdetailpopup [vehicle]="selectedVehicle" [showPopup]="showPopup" (close)="closePopup()">
+          </app-viewdetailpopup>
+        </div>
+
+        <!-- Bicycle Section -->
+        <div class="vehicle-section mb-5">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="section-title">Bicycles</h2>
+          </div>
+          <button class="btn btn-success btn-sm mb-4" (click)="openAddInventoryPopup()">
+            <i class="fas fa-plus-circle"></i> Add a New Bicycle to Inventory
+          </button>
+          <app-addvehicle *ngIf="showAddInventoryPopup" (close)="closeAddInventoryPopup()"></app-addvehicle>
+
+
+          <div class="row">
+            <div *ngFor="let bicycle of vehicles.bicycles" class="col-md-4 col-lg-3 mb-4">
+              <div class="card vehicle-card p-3 text-center">
+                <!-- Pencil Icon Trigger for Dropdown -->
+                <i class="fas fa-pencil-alt position-absolute top-0 end-0 p-2" style="color: #333; cursor: pointer;"
+                  data-bs-toggle="dropdown" aria-expanded="false"></i>
+
+                <!-- Dropdown Menu for Update and Delete -->
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li>
+                    <a class="dropdown-item" (click)="openUpdateModal(bicycle)">Update</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-danger" (click)="openDeleteModal(bicycle.id)">Delete</a>
+                  </li>
+                </ul>
+                <img *ngIf="bicycle.photoUrl" [src]="bicycle.photoUrl" alt="{{ bicycle.brand }} - {{ bicycle.model }}"
+                  class="card-img-top img-fluid small-img" />
+                <div class="card-body">
+                  <h5 class="card-title">{{ bicycle.brand }} - {{ bicycle.model }}</h5>
+                  <p class="mb-2">
+                    <span class="badge bg-secondary">Quantity: {{ bicycle.totalQuantity }}</span>
+                  </p>
+                  <p class="availability-text">
+                    <span [ngStyle]="{ color: bicycle.availabilityStatus ? 'green' : 'red' }">
+                      Availability: {{ bicycle.availabilityStatus ? 'Yes' : 'No' }}
+                    </span>
+                  </p>
+                  <button class="btn btn-primary w-100" (click)="viewMore(bicycle)">
+                    View Detailed Info
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Vehicle Action Modal (Update/Delete) -->
+            <app-updatedelete [vehicle]="selectedCar" [isUpdateMode]="isUpdateMode" (onUpdate)="handleUpdate($event)"
+              (onDelete)="handleDelete($event)">
+            </app-updatedelete>
+          </div>
+        </div>
+        <app-viewdetailpopup [vehicle]="selectedVehicle" [showPopup]="showPopup" (close)="closePopup()">
+        </app-viewdetailpopup>
+      </div>
+
+
+    </div>
+  </div>
+
+
+
+</body>
+
+</html>
