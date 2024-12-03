@@ -1,0 +1,92 @@
+<div class="container my-5">
+  <!-- Page Header -->
+  <div class="row mb-4">
+    <div class="col text-center">
+      <h1>{{ businessDetails?.businessName }}</h1>
+    </div>
+  </div>
+
+  <!-- Vehicle Images with Rates -->
+  <div class="row mb-5">
+    <div class="col-md-4" *ngFor="let vehicle of vehicles">
+      <div
+        class="car-item text-center border p-3 rounded shadow-sm position-relative selectable-card"
+        [class.selected-card]="selectedVehicle === vehicle"
+        (click)="selectVehicle(vehicle)"
+      >
+        <!-- Selection Indicator -->
+        <div
+          class="position-absolute top-0 end-0 p-2"
+          *ngIf="selectedVehicle === vehicle"
+        >
+          <i class="fas fa-check-circle text-success"></i>
+        </div>
+        <!-- Badge for Vehicle Name -->
+        <span
+          class="badge position-absolute top-0 start-50 translate-middle-x mt-2"
+          style="background-color: #863884; color: white"
+        >
+          {{ vehicle.brand }} {{ vehicle.model }}
+        </span>
+
+        <!-- Vehicle Image -->
+        <img
+          [src]="vehicle.photoUrl"
+          [alt]="vehicle.brand + ' ' + vehicle.model"
+          class="vehicle-image img-fluid rounded mb-3 mt-4"
+        />
+
+        <!-- Rates -->
+        <p><strong>Hourly Rate:</strong> Rs {{ vehicle.hourlyRate }}</p>
+        <p><strong>Half Day Rate:</strong> Rs {{ vehicle.halfDayRate }}</p>
+        <p><strong>Full Day Rate:</strong> Rs {{ vehicle.fullDayRate }}</p>
+        <p>
+          <strong>Status:</strong>
+          <span
+            [class.text-success]="vehicle.availabilityStatus"
+            [class.text-danger]="!vehicle.availabilityStatus"
+          >
+            {{ vehicle.availabilityStatus ? "Available" : "Not Available" }}
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Business Details Section -->
+  <div
+    class="row mt-4 p-4 border rounded bg-light shadow-sm"
+    *ngIf="businessDetails"
+  >
+    <div class="col">
+      <h3>Business Details</h3>
+      <div class="detail-row mb-3">
+        <span class="label"><strong>Rating:</strong></span>
+        <span class="value rating"> {{ businessDetails.averageRating }} ★</span>
+      </div>
+      <div class="detail-row mb-3">
+        <span class="label"><strong>Contact Number:</strong></span>
+        <span class="value"> {{ businessDetails.contactNumber }}</span>
+      </div>
+      <div class="detail-row mb-3">
+        <span class="label"><strong>Address:</strong></span>
+        <span class="value"> {{ businessDetails.address }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Book Now Button -->
+  <div class="row mt-4">
+    <div class="col text-center">
+      <button
+        class="btn btn-primary btn-lg shadow"
+        [disabled]="!selectedVehicle?.availabilityStatus"
+        (click)="selectedVehicle && bookNow(selectedVehicle)"
+      >
+        <strong>{{
+          selectedVehicle ? "Book Selected Vehicle" : "Select a Vehicle"
+        }}</strong>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,196 @@
+:root {
+  --text-color: #0b2154; /* Dark blue text color  */
+  --primary-color: #863884; /* Deep purple */
+  --secondary-color: #6a1b9a; /* Light purple */
+}
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+/* Sidebar */
+.row a {
+  font-size: 18px;
+}
+.sidebar {
+  background-color: #212529;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  color: white;
+  z-index: 1000;
+}
+
+.sidebar .nav-link {
+  color: white;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
+.sidebar .nav-link i {
+  color: white;
+}
+
+h2 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Main content styles */
+.main-content {
+  margin-top: 6vh;
+  padding: 20px;
+  align-items: center;
+  width: 100%;
+}
+
+.full-height-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.booking-history-card {
+  border-left: 5px solid var(--primary-color);
+  transition: transform 0.2s, box-shadow 0.2s;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  position: relative; /* Allows absolute positioning within the card */
+}
+
+.vehicle-type {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  text-align: center;
+}
+
+.vehicle-image {
+  width: 90px; /* Adjust the size as needed */
+  height: auto;
+  display: block;
+}
+
+.vehicle-label {
+  margin-top: 5px;
+  font-size: 0.875rem;
+  color: var(--text-color);
+  font-weight: bold;
+}
+
+.booking-history-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+.booking-history-card .notification-icon {
+  font-size: 2rem;
+  margin-top: 5px;
+  color: var(--secondary-color); /* Use the CSS variable here */
+}
+.booking-history-card h6 {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.booking-history-card p {
+  color: #343a40;
+}
+.booking-history-card .timestamp {
+  color: #6c757d;
+  font-size: 0.875rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  main {
+    margin-left: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    position: relative;
+    height: 40vh;
+    /* Set height to 60% of the viewport height */
+    min-height: unset;
+  }
+
+  .sidebar .nav-link {
+    display: inline-block;
+    margin: 5px;
+  }
+
+  main {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .sidebar {
+    height: 40vh;
+    /* Set height to 60% of the viewport height */
+    min-height: unset;
+    /* Override min-height to allow setting a fixed height */
+  }
+}
+.badge {
+  font-size: 0.75rem;
+  padding: 0.25em 0.6em;
+}
+
+.nav-item.position-relative {
+  padding-right: 15px; /* Make room for the badge */
+}
+
+/* Animation for new notifications */
+@keyframes pulse {
+  0% {
+    transform: scale(1) translate(-50%, -50%);
+  }
+  50% {
+    transform: scale(1.2) translate(-50%, -50%);
+  }
+  100% {
+    transform: scale(1) translate(-50%, -50%);
+  }
+}
+
+.badge.bg-danger {
+  animation: pulse 1s ease-in-out;
+}
+
+.text-muted {
+  color: #6c757d;
+}
+
+.fa-history {
+  opacity: 0.5;
+}
+
+.card {
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,73 @@
+.container{
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 20px;
+}
+.content{
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    margin-top: 12vh;
+}
+h2{
+    background-color: #6B2667;
+    color: white;
+    padding: 7px;
+    border-radius: 10px;
+    width: auto;
+    width: 300px;
+    font-size: 20px;
+    /* margin: -20px -20px 20px -20px;
+    border-top-left-radius: 5px;
+     border-top-right-radius: 5px; */
+
+}
+
+input{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.file-upload{
+    margin-bottom: 10px;
+}
+.file-upload label{
+    display: block;
+    margin-bottom: 5px;
+}
+button{
+    background-color: #6B2667;
+    color: white;
+    padding: 10px 20px;
+
+    cursor: pointer;
+    float: left;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+button:hover{
+    background-color: rgb(172, 42, 193);
+}
+.file-name{
+    margin-top: 5px;
+    font-size: 10px;
+    color: #666;
+}
+
+/* switch to company */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.switch-button {
+    margin-left: 20px;
+}

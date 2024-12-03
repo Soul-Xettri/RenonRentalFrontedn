@@ -1,0 +1,300 @@
+
+:root {
+    --text-color: #0B2154;  /* Dark blue text color  */
+   --primary-color: #863884;  /* Deep purple */
+   --secondary-color: #6A1B9A;  /* Light purple */
+ }
+ 
+
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+.rental-details {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    margin-top: 5vh;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.pickup-info,
+.return-info {
+    margin-bottom: 10px;
+}
+
+.label {
+    font-weight: bold;
+    color:var(--text-color);
+}
+
+.location,
+.date-time {
+    display: block;
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+.vehicle-list {
+    row-gap: 20px;
+    animation: slideUp 0.8s ease-in-out;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+.vehicle-card-wrapper {
+    margin-bottom: 20px;
+}
+
+.vehicle-card {
+    background-color: #ffffff;
+    border-bottom: 2px ridge var(--secondary-color); /* Yellow bottom border */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.vehicle-card h2 {
+    font-size: 18px;
+    color: #343a40;
+    margin-bottom: 10px;
+}
+
+.vehicle-card p {
+    color: #6c757d;
+}
+
+.vehicle-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-bottom: 2px ridge var(--primary-color);
+}
+
+.rating {
+    margin: 10px 0;
+}
+
+.rating .star {
+    color: #ffc107;
+    font-size: 18px;
+}
+
+.view-more {
+    background-color: #6b2667;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.view-more:hover {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+.view-more:focus {
+    outline: 2px solid var(--primary-color);
+    
+}
+
+/* Modal styles */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.modal-header h5 {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    color: #6B2667;
+    gap: 10px;
+}
+
+.detail-row {
+    display: flex;
+    align-items: center; /* Aligns items vertically */
+    margin-bottom: 10px; /* Adds spacing between rows */
+}
+
+.label {
+    width: 120px; /* Fixed width for labels */
+    font-weight: 200;
+    color: black;
+    text-align: left; /* Align labels to the left */
+}
+
+.value {
+    flex: 1; /* Makes the value take the remaining space */
+    color: #333;; /* Subtle color for values */
+    text-align: left; /* Align values to the left */
+}
+
+.vehicle-image {
+    width: 100%; /* Image takes full width of its container */
+    max-width: 150px; /* Ensures a consistent size */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+    margin-bottom: 5px; /* Spacing between the image and the price */
+}
+
+.car-item {
+    display: flex;
+    flex-direction: column; /* Stack image and price vertically */
+    align-items: center; /* Center align the content */
+    width: 30%; /* Ensure 3 items fit side by side */
+}
+
+.car-price {
+    font-size: 14px; /* Adjust as needed */
+    color: var(--text-color); /* Use the existing text color variable */
+    font-weight: bold; /* Make the price stand out */
+    margin-top: 5px;
+    text-align: center; /* Ensure the price is centered */
+}
+
+
+.threshold-price {
+    margin-bottom: 10px;
+    padding:  8px 8px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: 16px;
+    text-align: center;
+}
+
+.btn-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.btn-close:focus {
+    outline: 2px solid var(--primary-color);
+    cursor: pointer;
+}
+.modal-body {
+    margin-top: 15px;
+    
+}
+
+.payment-options {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.payment-option {
+    padding: 15px 20px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #6B2667;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex: 1;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.payment-option.selected {
+    background-color: #6B2667;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.payment-option:hover {
+    background-color: var(--secondary-color);
+}
+
+.payment-option-icon {
+    font-size: 20px;
+}
+
+.payment-total {
+    font-size: 18px;
+    color: #6B2667;
+    margin-bottom: 20px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.btn-proceed {
+    background-color: #6B2667;
+    color: white;
+    font-size: 16px;
+    padding: 10px 30px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-proceed:hover {
+    background-color: var(--secondary-color);
+}
+/* .btn-proceed:focus {
+    outline: 2px solid var(--primary-color);
+} */
+.btn-secondary {
+    background-color: var(--primary-color); /* Matches the theme's primary color */
+    color: white;
+}
+.btn-secondary:hover {
+    background-color: var(--secondary-color); /* Matches the theme's primary color */
+    color: white;
+}
+
+

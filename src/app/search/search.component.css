@@ -1,0 +1,187 @@
+
+:root {
+  --text-color: #0B2154;  /* Dark blue text color  */
+ --primary-color: #863884;  /* Deep purple */
+ --secondary-color: #6A1B9A;  /* Light purple */
+}
+
+.search-container {
+  background-image: url('/assets/images/secondcar.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2% 5%;
+  flex-direction: column;
+  
+}
+
+.search-container h2 {
+  margin-top: 3vh;
+  color: white; /* Adjust this color based on your theme, e.g., dark grey for good contrast */
+  text-align: center; /* Center the text */
+  
+  margin-bottom: 10px; /* Add some space between the title and the container */
+  font-weight: bold;
+  font-size: 2rem; /* Adjust for larger heading */
+}
+
+.search-container p {
+  color: #ffffff; /* A lighter shade for the paragraph text */
+  text-align: center; /* Center the text */
+  margin-bottom: 10px; /* Add some space below the paragraph */
+  font-size: 1.1rem; /* Slightly larger for visibility */
+  line-height: 1.5; /* Improve readability */
+}
+
+.search-form {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 1500px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 5px;
+}
+
+.vehicle-type {
+  display: flex;
+  justify-content: center;
+
+  gap: 25px;
+  margin-bottom: 20px;
+}
+
+.vehicle-type button {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.vehicle-type button.selected {
+  box-shadow: 0 0 10px var(--primary-color);
+  transform: scale(1.1);
+}
+
+.vehicle-type button img {
+  width: 50px;
+  height: 50px;
+}
+
+.suggestions-list {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-height: 150px;
+  overflow-y: auto;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: calc(100% - 20px);
+  z-index: 1000;
+  margin-top: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.suggestions-list div {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.suggestions-list div:hover {
+  background-color: #f0f0f0;
+}
+
+button.search {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  align-self: center;
+}
+
+button.search:hover {
+  background: var(--secondary-color);
+}
+
+.form-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"] {
+    padding: 16px; /* Increase padding to make the input taller */
+    height: 50px; /* Optionally, you can add or increase the height property */
+    border: none;
+    outline: none;
+    font-size: 16px;
+    flex-grow: 1;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus {
+    outline: 2px solid var(--primary-color); /* Change the color to your desired one (e.g., #6B2667 for purple) */
+    box-shadow: 0 0 5px rgba(107, 38, 103, 0.5); /* Optional: Add a subtle shadow for a polished look */
+}
+
+
+@media (max-width: 768px) {
+
+  .search-container p {
+    display: none;
+  }
+  .search-form {
+      width: 90%;
+  }
+
+  
+  .form-row {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+
+  button.search {
+      margin-top: 20px;
+  }
+ 
+}
+
+
+.suggestions-list {
+  border: 1px solid #ddd;
+  max-height: 150px;
+  overflow-y: auto;
+  background-color: #fff;
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+}
+.suggestion-item {
+  padding: 8px;
+  cursor: pointer;
+}
+.suggestion-item:hover {
+  background-color: #f0f0f0;
+}
+

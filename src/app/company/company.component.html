@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Company Type Business</h2>
+            <button class="switch-button" routerLink="/basic"> Switch </button>
+        </div>
+        <div class="content">
+            <!-- <div class="info">
+                <div class="form">
+                    <h2>Basic Info</h2>
+                    <input name="firstname" type="text" placeholder="First Name">
+                    <input name="lastname" type="text" placeholder="Last Name">
+                    <input name="email" type="email" placeholder="Email">
+                    <input name="password" type="password" placeholder="Password">
+                    <input name="contact" type="tel" placeholder="Contact">
+                    <input name="address" type="text" placeholder="Address">
+                </div>
+            </div> -->
+            <div class="form">
+                <h3>Business Registration</h3>
+                <input name="businessregistrationNumber" type="tel" placeholder="Business Registration Number">
+            </div>
+            <div class="file-upload">
+                <label> Business Registration Document</label>
+                <input type="file" name="businessRegistrationDoc" required>
+                <div class="file-name" id="businessRegistrationName"></div>
+            </div>
+
+        </div>
+        <button type="submit" routerLink="/dashboard"> Next</button>
+    </div>
+    
+</body>
+</html>
+<router-outlet></router-outlet>
+
+

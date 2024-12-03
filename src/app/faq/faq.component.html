@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    />
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    rel="stylesheet"
+    />
+    <style>
+        .icon-purple {
+            color: #863884 !important; /* Define your preferred color */
+        }
+        
+            /* Custom button color */
+            .custom-btn {
+            background-color: #863884; /* Your custom color */
+            color: white; /* Text color */
+            border: none; /* Remove border */
+        }
+
+        /* Button hover effect */
+        .custom-btn:hover {
+            background-color: #6A1B9A; /* Color on hover */
+            color: white; /* Ensure text color stays white */
+        }
+        
+    .bg-custom {
+        background-color: #863884;
+    }
+
+    /* Increase the icon size */
+    .social-icons i {
+        font-size: 2.5rem; /* Increase size to 2.5 times */
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    /* Change icon color on hover */
+    .social-icons a:hover i {
+        color: white; /* Ensure text stays white on hover */
+        transform: scale(1.1); /* Slightly increase size on hover */
+    }
+
+    /* Specific hover colors for each icon */
+    .social-icons a.linkedin:hover i {
+        color: #0077b5; /* LinkedIn color */
+    }
+
+    .social-icons a.facebook:hover i {
+        color: #4267B2; /* Facebook color */
+    }
+
+    .social-icons a.instagram:hover i {
+        color: #e4405f; /* Instagram color */
+    }
+
+    </style>
+</head>
+<body>
+    <div class="container-fluid p-0">
+        <!-- Hero Section -->
+        <section
+            class="hero-section text-center text-white py-5 d-flex align-items-center justify-content-center"
+            style="background: url('/assets/images/secondd.jpg') no-repeat center center/cover; height: 60vh;"
+        >
+            <div class="container">
+                <h1 class="display-4 fw-bold">Your Questions, Clearly Addressed</h1>
+                <p class="lead mt-3">Find clear answers to all your rental questions, ensuring a smooth, hassle-free experience.</p>
+            </div>
+        </section>
+        <section class="faq">
+            <h2>Frequently Asked Question</h2>
+            <ul class="accordion">
+                <li>
+                    <input type="radio" name="accordion" id="first">
+                    <label for="first">What kind of vehicle can I rent?</label>
+                    <div class="content">
+                        <p>You can rent a variety of vehicles, including cars, scooter, motorbike, and bicycles, depending on the service providers available in your area.</p>
+                    </div>
+                </li>
+        
+                <li>
+                    <input type="radio" name="accordion" id="third">
+                    <label for="third">What payment method do you accept?</label>
+                    <div class="content">
+                        <p>We offer two convenient payment options.you can pay online during booking with secure online payment mehtods include esewa.also you pay after pickup using cash or online </p>
+                    </div>
+                </li>
+                <li>
+                    <input type="radio" name="accordion" id="fourth">
+                    <label for="fourth">Can I modify or cancel my booking?</label>
+                    <div class="content">
+                        <p>Yes, you can modify or cancel your reservation up to 24 hours before the rental start time. Visit your account dashboard, go to “My Reservations,” and choose the option to either modify or cancel.</p>
+                    </div>
+                </li>
+                <li>
+                    <input type="radio" name="accordion" id="fifth">
+                    <label for="fifth"> Can I rent a vehicle without an account?</label>
+                    <div class="content">
+                        <p>No, you need to have a registered account to rent a vehicle. Having an account allows you to manage your bookings, make payments, and track reservations more easily.</p>
+                    </div>
+                </li>
+                <li>
+                    <input type="radio" name="accordion" id="sixth">
+                    <label for="sixth"> How can I list my vehicles for rent?</label>
+                    <div class="content">
+                        <p>If you’re a business looking to list your vehicles, sign up as a business. Once your account is verified, you can start adding vehicles to the platform through your provider dashboard.</p>
+                    </div>
+                </li>
+        
+                <li>
+                    <input type="radio" name="accordion" id="seventh">
+                    <label for="seventh">Can I return the vehicle to a different location?</label>
+                    <div class="content">
+                        <p>Some providers allow one-way rentals where you can return the vehicle to a different location, while others require you to return it to the original pickup point. Check with the service provider for specific policies.</p>
+                    </div>
+                </li>
+            </ul>
+        </section>  
+    </div>
+</body>
+ <!-- Footer -->
+ <footer class="py-4 bg-custom text-white text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <i class="fa-solid fa-phone"></i>
+                <p>9856342592 (+977)</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <i class="fas fa-envelope"></i>
+                <p>revonrental345gmail.com</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <i class="fas fa-clock"></i>
+                <p>24/7</p>
+            </div>
+        </div>
+        <div class="social-icons">
+            <a href="#" class="text-white me-3 linkedin"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="text-white me-3 facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="text-white instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+</footer>
+    
+</html>

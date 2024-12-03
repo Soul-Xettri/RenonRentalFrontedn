@@ -1,0 +1,107 @@
+.custom-button {
+  background-color: #863884;
+  color: white;
+  border-radius: 0.3rem;
+}
+.custom-button:hover {
+  transform: scale(1.02);
+}
+
+.notification-card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  transition: transform 0.2s;
+}
+
+.notification-card:hover {
+  transform: scale(1.02);
+}
+
+.notification-icon {
+  font-size: 2rem;
+}
+
+.timestamp {
+  font-size: 0.85rem;
+  color: gray;
+}
+
+:root {
+  --primary-color: #863884; /* Deep purple */
+  --secondary-color: #6a1b9a; /* Light purple */
+  --bg-color: #eeeff1; /* Background color */
+  --text-color: #333; /* Dark text color */
+}
+h1 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 30px;
+}
+.star-rating {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.bi {
+  font-size: 2.5rem;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.bi:hover,
+.bi:hover ~ .bi {
+  color: #ffc107; /* Hover color */
+}
+
+.bi.bi-star-fill {
+  color: #ffc107; /* Filled star color */
+}
+
+textarea {
+  resize: none;
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+}
+
+.btn-purple {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+}
+
+.btn-purple:hover {
+  color: white;
+  background-color: var(--secondary-color);
+}
+
+.modal-header {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.badge {
+  font-size: 0.75rem;
+  padding: 0.25em 0.6em;
+}
+
+.nav-item.position-relative {
+  padding-right: 15px; /* Make room for the badge */
+}
+
+/* Animation for new notifications */
+@keyframes pulse {
+  0% {
+    transform: scale(1) translate(-50%, -50%);
+  }
+  50% {
+    transform: scale(1.2) translate(-50%, -50%);
+  }
+  100% {
+    transform: scale(1) translate(-50%, -50%);
+  }
+}
+
+.badge.bg-danger {
+  animation: pulse 1s ease-in-out;
+}

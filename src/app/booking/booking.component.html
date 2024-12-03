@@ -1,0 +1,147 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <nav class="col-lg-2 col-md-3 col-sm-12 sidebar d-flex flex-column p-3">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link text-white" routerLink="/dashboard"
+            ><i class="fas fa-tachometer-alt me-2"></i> Dashboard</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" routerLink="/booking"
+            ><i class="fas fa-calendar-check me-2"></i> Booking</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" routerLink="/vehicle"
+            ><i class="fas fa-car me-2"></i> Vehicles</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link text-white position-relative"
+            (click)="navigateTo('/businessnotification')"
+          >
+            <i class="fas fa-bell me-2"></i>
+            Notifications
+            <span
+              class="badge bg-danger position-absolute top-0 start-100 translate-middle"
+              *ngIf="unreadNotifications >= 0"
+            >
+              {{ unreadNotifications }}
+            </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" routerLink="/businesshistory"
+            ><i class="fas fa-history me-2"></i> History</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="col-md-10 offset-md-2 mt-4">
+      <h2>Booking Details</h2>
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+          <thead class="table-dark">
+            <tr>
+              <th>Vehicle Photo</th>
+              <th>User</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Total Price</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let booking of bookings">
+              <td>
+                <img
+                  [src]="booking.photoUrl"
+                  alt="Vehicle"
+                  class="img-thumbnail"
+                  style="width: 100px; height: auto"
+                />
+              </td>
+              <td>{{ booking.userName }}</td>
+              <td>{{ booking.startDate | date : "shortDate" }}</td>
+              <td>{{ booking.endDate | date : "shortDate" }}</td>
+              <td>{{ booking.totalPrice | currency : "NPR" }}</td>
+              <td>
+                <!-- Handling Confirmed Status -->
+                <ng-container
+                  *ngIf="
+                    booking.rentalStatus === 'Confirmed';
+                    else otherStatuses
+                  "
+                >
+                  <!-- Dropdown for 'Confirmed' status -->
+                  <select
+                    class="form-select form-select-sm bg-success text-white"
+                    (change)="markAsCompleted(booking.id)"
+                  >
+                    <option value="Confirmed" selected>Confirmed</option>
+                    <option value="Completed">Completed</option>
+                  </select>
+                </ng-container>
+
+                <!-- Handling Accepted Status -->
+                <ng-template #otherStatuses>
+                  <ng-container
+                    *ngIf="
+                      booking.rentalStatus === 'Accepted';
+                      else defaultStatus
+                    "
+                  >
+                    <!-- Dropdown for 'Accepted' status -->
+                    <select
+                      class="form-select form-select-sm bg-primary text-white"
+                      (change)="markAsRejected(booking.id)"
+                    >
+                      <option value="Accepted" selected>Accepted</option>
+                      <option value="Rejected">Rejected</option>
+                    </select>
+                  </ng-container>
+
+                  <!-- Handling other statuses -->
+                  <ng-template #defaultStatus>
+                    <select
+                      class="form-select status-dropdown"
+                      [(ngModel)]="booking.rentalStatus"
+                      (change)="onStatusChange(booking)"
+                      [ngStyle]="{
+                        'background-color':
+                          booking.rentalStatus === 'Confirmed'
+                            ? '#28a745'
+                            : booking.rentalStatus === 'Pending'
+                            ? '#ffc107'
+                            : booking.rentalStatus === 'Accepted'
+                            ? '#007bff'
+                            : booking.rentalStatus === 'Rejected'
+                            ? '#dc3545'
+                            : booking.rentalStatus === 'Completed'
+                            ? '#198754'
+                            : '',
+                        color:
+                          booking.rentalStatus === 'Pending' ? 'black' : 'white'
+                      }"
+                    >
+                      <option value="Confirmed">Confirmed</option>
+                      <option value="Pending">Pending</option>
+                      <option value="Accepted">Accepted</option>
+                      <option value="Rejected">Rejected</option>
+                      <option value="Completed">Completed</option>
+                    </select>
+                  </ng-template>
+                </ng-template>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

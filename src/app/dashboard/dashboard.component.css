@@ -1,0 +1,259 @@
+/* Sidebar */
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.container {
+  z-index: 1000;
+}
+.sidebar {
+  background-color: #212529;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  color: white;
+  z-index: 1001;
+}
+
+.sidebar .nav-link {
+  color: white;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+  /* Hover animation */
+}
+
+.sidebar .nav-link i {
+  color: white;
+}
+
+/* Header Color */
+.card-header {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Custom Card Body for Primary Color */
+.card-body.bg-info,
+.card-body.bg-success,
+.card-body.bg-warning,
+.card-body.bg-danger {
+  background-color: var(--primary-color);
+}
+
+.card-body.bg-info,
+.card-body.bg-success,
+.card-body.bg-warning,
+.card-body.bg-danger h4 {
+  color: white;
+}
+
+/* Custom Badge Colors */
+.badge.bg-success {
+  background-color: #28a745;
+}
+
+.badge.bg-warning {
+  background-color: #ffc107;
+  color: black;
+}
+
+.badge.bg-danger {
+  background-color: #dc3545;
+}
+
+/* Charts Responsiveness */
+#rentalTrendsChart {
+  max-width: 100%;
+  max-height: 270px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Available Vehicles Section */
+.available-vehicles {
+  margin-top: 20px;
+  background: #ffffff;
+  padding: 20px;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.available-vehicles h2 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #333;
+}
+
+.vehicle-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.vehicle-card {
+  /* display: flex;
+   flex-wrap: wrap;
+   gap: 10px; */
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  flex: 0 1 calc(25% - 20px);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+.vehicle-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.vehicle-card img {
+  max-width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.vehicle-card h3 {
+  font-size: 2rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-bottom: 5px;
+  color: var(--primary-color);
+}
+
+.vehicle-info {
+  font-size: 1rem;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vehicle-info span {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.vehicle-info p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vehicle-info i {
+  margin-right: 8px;
+  color: #6b2667;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+  justify-content: center;
+}
+
+.action-buttons button {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.view-more {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.add-more {
+  background-color: #28a745;
+  color: white;
+}
+
+.action-buttons button:hover {
+  transform: translateY(-3px);
+  opacity: 0.8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  main {
+    margin-left: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .vehicle-card {
+    flex: 0 1 calc(48% - 20px);
+  }
+
+  .sidebar {
+    width: 100%;
+    position: relative;
+    height: 40vh;
+    /* Set height to 60% of the viewport height */
+    min-height: unset;
+  }
+
+  .sidebar .nav-link {
+    display: inline-block;
+    margin: 5px;
+  }
+
+  main {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .vehicle-card {
+    flex: 0 1 100%;
+    margin-bottom: 20px;
+  }
+  .sidebar {
+    height: 40vh; /* Set height to 60% of the viewport height */
+    min-height: unset; /* Override min-height to allow setting a fixed height */
+  }
+}
+.badge {
+  font-size: 0.75rem;
+  padding: 0.25em 0.6em;
+}
+
+.nav-item.position-relative {
+  padding-right: 15px; /* Make room for the badge */
+}
+
+/* Animation for new notifications */
+@keyframes pulse {
+  0% {
+    transform: scale(1) translate(-50%, -50%);
+  }
+  50% {
+    transform: scale(1.2) translate(-50%, -50%);
+  }
+  100% {
+    transform: scale(1) translate(-50%, -50%);
+  }
+}
+
+.badge.bg-danger {
+  animation: pulse 1s ease-in-out;
+}

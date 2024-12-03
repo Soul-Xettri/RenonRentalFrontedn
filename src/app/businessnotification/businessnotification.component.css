@@ -1,0 +1,134 @@
+/* Sidebar */
+.row a {
+  font-size: 18px;
+}
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.sidebar {
+  background-color: #212529;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  color: white;
+  z-index: 1000;
+}
+
+.sidebar .nav-link {
+  color: white;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
+.sidebar .nav-link i {
+  color: white;
+}
+
+h2 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+/* Main content styles */
+.main-content {
+  margin-top: 6vh;
+  margin-left: 260px; /* Matches the sidebar width */
+  padding: 20px;
+}
+
+/* Notification card styles */
+.notification-card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  /* margin-left: 10vh; */
+  transition: transform 0.2s;
+}
+
+.notification-card:hover {
+  transform: scale(1.02);
+}
+
+.notification-icon {
+  font-size: 2rem;
+}
+
+.timestamp {
+  font-size: 0.85rem;
+  color: gray;
+}
+
+/* Adjust margin for the main content */
+h1 {
+  margin-top: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  main {
+    margin-left: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    position: relative;
+    height: 40vh;
+    /* Set height to 60% of the viewport height */
+    min-height: unset;
+  }
+
+  .sidebar .nav-link {
+    display: inline-block;
+    margin: 5px;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .notification-card {
+    align-items: center;
+    margin-left: 0px;
+  }
+
+  .sidebar {
+    height: 40vh;
+    /* Set height to 60% of the viewport height */
+    min-height: unset;
+    /* Override min-height to allow setting a fixed height */
+  }
+}
+
+.badge {
+  font-size: 0.75rem;
+  padding: 0.25em 0.6em;
+}
+
+.nav-item.position-relative {
+  padding-right: 15px; /* Make room for the badge */
+}
+
+/* Animation for new notifications */
+@keyframes pulse {
+  0% { transform: scale(1) translate(-50%, -50%); }
+  50% { transform: scale(1.2) translate(-50%, -50%); }
+  100% { transform: scale(1) translate(-50%, -50%); }
+}
+
+.badge.bg-danger {
+  animation: pulse 1s ease-in-out;
+}

@@ -1,0 +1,144 @@
+/* Change icon color to purple */
+.icon-purple {
+    color: #6a1b9a !important;
+}
+:root {
+    --text-color:#0B2154 ;
+    --primary-color: #863884; /* Deep purple */
+    --secondary-color: #6A1B9A; /* Light purple */
+  }
+
+  .about-us-content p.lead {
+    margin-top: 4vh;
+    font-size: 1rem;  /* Slightly larger for the lead paragraph */
+    font-family: 'Helvetica', sans-serif;  /* Choose a different font */
+}
+.about-us-content p.lead2 {
+
+    text-align: left;  /* Ensure text aligns left */
+    font-size: 1rem;  /* Slight
+    ly larger for the lead paragraph */
+    font-family: 'Helvetica', sans-serif;  /* Choose a different font */
+}
+
+/* Hover effect for service cards */
+.card:hover {
+    background-color: var(--primary-color); /* Purple background */
+    color: #ffffff; /* White text */
+    transform: scale(1.05); /* Slight zoom-in effect */
+    transition: all 0.3s ease; /* Smooth transition */
+    
+}
+    
+.card:hover .icon-purple {
+    color: #ffffff !important; /* Change the icon color to white on hover */
+}
+
+/* Ensure icons and text change color on hover */
+.card:hover i,
+.card:hover h3,
+.card:hover p {
+   
+    color: #ffffff; /* White color for all text */
+}
+h2{
+    color: #333;
+}
+
+
+
+/* fotter sectionn */
+.bg-custom {
+    background-color: #863884;
+}
+
+.social-icons a {
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.social-icons a.linkedin:hover {
+    color: #0077b5; /* LinkedIn color */
+}
+
+.social-icons a.facebook:hover {
+    color: #4267B2; /* Facebook color */
+}
+
+.social-icons a.instagram:hover {
+    color: #e4405f; /* Instagram color */
+}
+
+
+/* Increase the icon size */
+.social-icons i {
+    font-size: 2.5rem; /* Increase size to 2.5 times */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Change icon color on hover */
+.social-icons a:hover i {
+    color: white; /* Ensure text stays white on hover */
+    transform: scale(1.1); /* Slightly increase size on hover */
+}
+
+/* Specific hover colors for each icon */
+.social-icons a.linkedin:hover i {
+    color: #0077b5; /* LinkedIn color */
+}
+
+.social-icons a.facebook:hover i {
+    color: #4267B2; /* Facebook color */
+}
+
+.social-icons a.instagram:hover i {
+    color: #e4405f; /* Instagram color */
+}
+
+
+
+/* Increased Map Size */
+.map-container {
+    width: 100%;
+    height: 500px; /* Increased height for the map */
+    border-radius: 10px;
+}
+.about-us-content h2{
+  margin-left: 14vh;
+  font-size: 40px;
+    margin-bottom: 10vh;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.about-us-content p{
+    margin-left: 14vh;
+    /* margin-bottom: 1vh; */
+    font-family: sans-serif;
+    color: #333;
+    font-size: 18px;
+}
+.about-us-content a{
+    
+    margin-left: 14vh;
+    color: purple;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+/* Remove container class for full-width */
+.no-container {
+    width: 100%;
+}
+
+.container-fluid {
+    padding: 0;
+}
